@@ -1,0 +1,15 @@
+Listing All Files in a Directory
+This section will show you how to print out the names of files in a directory using os.listdir(), os.scandir(), and pathlib.Path(). To filter out directories and only list files from a directory listing produced by os.listdir(), use os.path:
+
+import os
+
+# List all files in a directory using os.listdir
+basepath = 'my_directory/'
+for entry in os.listdir(basepath):
+    if os.path.isfile(os.path.join(basepath, entry)):
+        print(entry)
+Here, the call to os.listdir() returns a list of everything in the specified path, and then that list is filtered by os.path.isfile() to only print out files and not directories. This produces the following output:
+
+file1.py
+file3.txt
+file2.csv
